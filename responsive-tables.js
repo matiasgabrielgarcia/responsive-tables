@@ -16,7 +16,7 @@ $(document).ready(function() {
     }
   };
    
-  $(window).load(updateTables);
+  $(window).on("load", function(){ $( document ).ready(updateTables);});
   $(window).on("redraw",function(){switched=false;updateTables();}); // An event to listen for
   $(window).on("resize", updateTables);
    
@@ -52,7 +52,7 @@ $(document).ready(function() {
           tx = self.find('th, td');
 
       tx.each(function () {
-        var height = $(this).outerHeight(true);
+        var height = $(this).height();
         heights[index] = heights[index] || 0;
         if (height > heights[index]) heights[index] = height;
       });
